@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Weather Summary</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+    <h1>Daily Weather Summaries</h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Average Temperature (°C)</th>
+            <th>Max Temperature (°C)</th>
+            <th>Min Temperature (°C)</th>
+            <th>Dominant Condition</th>
+        </tr>
+        <% summaries.forEach(summary => { %>
+        <tr>
+            <td><%= new Date(summary.date).toLocaleDateString() %></td>
+            <td><%= summary.avg_temp.toFixed(2) %></td>
+            <td><%= summary.max_temp.toFixed(2) %></td>
+            <td><%= summary.min_temp.toFixed(2) %></td>
+            <td><%= summary.dominant_condition %></td>
+        </tr>
+        <% }) %>
+    </table>
+    <a href="/">Back to Recent Weather Data</a>
+</body>
+</html>
